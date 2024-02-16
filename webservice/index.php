@@ -10,9 +10,9 @@ if (!isset($_GET['id'])) {
 }
 
 //Set the header & output JSON so the client will know what to expect.
-header("Content-Type: application/json");
-echo json_encode($data);
-exit;
+//header("Content-Type: application/json");
+//echo json_encode($data);
+//exit;
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,26 +26,22 @@ exit;
     <script type="application/javascript" src="js/main.js" defer></script>
 </head>
 <body>
+<nav>
+    <a href="index.php">Home</a>
+    <img src="" alt="Logo">
+    <a href="about.html">About</a>
+</nav>
 <header>
-    <nav>
-        <a href="#">about</a>
-        <img src="" alt="Logo">
-        <a href="#">IMDb</a>
-    </nav>
+    <h1>Upcoming moviezzzzz upcuming zooon read below </h1>
 </header>
 <main>
-    <h1>Top upcoming movies</h1>
-    <section>
-        <div>
+    <section id="card-1">
+        <div id="movingPicture">
             <div>
                 <img src="" alt="foto film">
             </div>
-            <div>
         </div>
-                <h2>Film name</h2>
-                <p>Release date</p>
-            </div>
-        <div>
+        <div id="leftSide">
             <div>
                 <p>Description</p>
             </div>
@@ -53,7 +49,14 @@ exit;
                 <li>Genres:</li>
                 <li>...</li>
             </ul>
-
+        </div>
+        <div id="rightSide">
+            <div>
+                <h2>Film name</h2>
+            </div>
+            <div>
+                <p>Release date</p>
+            </div>
         </div>
     </section>
 </main>
