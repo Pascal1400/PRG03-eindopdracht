@@ -39,18 +39,63 @@ function movieSuccessHandler(data) {
 
         const releaseDateData = movieData.date;
         const releaseDateInput = document.createElement(`p`)
-        releaseDateInput.textContent = releaseDateData;
+        releaseDateInput.textContent = `release data: ${releaseDateData}`;
         rightSide.appendChild(releaseDateInput);
 
+        const buttonsRight = document.createElement(`div`)
+        buttonsRight.classList.add(`buttons`);
+        rightSide.appendChild(buttonsRight)
+
         const detailsButtonRight= document.createElement(`button`);
-        detailsButtonRight.classList.add(`button`);
+        detailsButtonRight.classList.add(`buttonDetails`);
         detailsButtonRight.textContent = `< Show details`;
-        rightSide.appendChild(detailsButtonRight);
+        buttonsRight.appendChild(detailsButtonRight);
+
+        const buttonFavorite = document.createElement('button');
+        buttonFavorite.classList.add('favorite-button');
+        buttonFavorite.textContent = '✰';
+        buttonFavorite.dataset.id = movieData.id;
+        buttonsRight.appendChild(buttonFavorite)
 
         list.appendChild(cards);
+    }
+    loadFavorites()
+}
 
-        console.log(cards);
-        console.log(movieData);console.log(detailsButtonRight)
+function toggleFavorite(movieId) {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const index = favorites.indexOf(movieId);
+
+    const card = document.querySelector(`.cards[data-name="${movieId}"]`);
+    if (!card) return;
+
+    if (index !== -1) {
+        favorites.splice(index, 1);
+        card.classList.remove('favorite-card');
+    } else {
+        favorites.push(movieId);
+        card.classList.add('favorite-card');
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+
+    const button = document.querySelector(`.favorite-button[data-id="${movieId}"]`);
+    if (button) {
+        button.textContent = (index === -1) ? '★' : '✰';
+    }
+}
+
+function loadFavorites() {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    for (const favoriteId of favorites) {
+        const button = document.querySelector(`.favorite-button[data-id="${favoriteId}"]`);
+        if (button) {
+            const card = button.closest('.cards');
+            if (card) {
+                card.classList.add('favorite-card');
+                button.textContent = `★`;
+            }
+        }
     }
 }
 
@@ -59,6 +104,17 @@ function movieClickHandler(e) {
 
     if (clickedElement.tagName !== 'BUTTON') return;
 
+    if (clickedElement.classList.contains('favorite-button')) {
+        const card = clickedElement.closest('.cards');
+        const movieId = card.dataset.name;
+
+        if (!card) return;
+
+        toggleFavorite(movieId);
+
+        return;
+    }
+
     const card = clickedElement.closest('.cards');
 
     if (!card) return;
@@ -66,7 +122,7 @@ function movieClickHandler(e) {
     const movieId = card.dataset.name;
     const descriptionDetail = card.querySelector('h2');
     const genresDetail = card.querySelector('p');
-    const buttonDetail = card.querySelector('.button');
+    const buttonDetail = card.querySelector('.buttonDetails');
 
     if (!descriptionDetail || !genresDetail || !buttonDetail) return;
 
@@ -80,16 +136,16 @@ function movieClickHandler(e) {
                 descriptionDetail.textContent = movieDetails.description;
                 descriptionDetail.classList.add(`descriptionAndGenres`);
 
-                genresDetail.textContent = `genres: ${movieDetails.genres.join(', ')}`;
+                genresDetail.textContent = `genres: ${movieDetails.genres}`;
                 genresDetail.classList.add(`descriptionAndGenres`);
 
-                buttonDetail.textContent = `> Go back`;
+                buttonDetail.textContent = `Go back >`;
 
                 card.dataset.originalName = nameMovie;
                 card.dataset.originalReleaseDate = releaseDate;
             }
         });
-    } else {
+    } else if (buttonDetail.textContent === `Go back >`){
         descriptionDetail.textContent = card.dataset.originalName;
         genresDetail.textContent = card.dataset.originalReleaseDate;
 
