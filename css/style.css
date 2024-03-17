@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;700&family=Open+Sans&family=Oswald&display=swap');
+
+/*alles*/
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #2b2b2b;
+}
+
+p {
+    margin: 0;
+    color: #000000;
+    font-size: 1.8rem;
+}
+
+img {
+    color: #ffffff;
+    max-width: 100%;
+}
+
+/*nav*/
+nav {
+    background-color: #0d0d0d;
+    padding: 3vw 20vw;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: solid 2px #009dd6;
+}
+
+nav a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    display: flex;
+    text-decoration: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*header*/
+header {
+    margin: 0;
+    padding: 7vw 7vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ffffff;
+}
+
+/*main(cards)*/
+.cards {
+    margin: 0 25vw 12.5vw 25vw;
+    display: flex;
+    flex-direction: row;
+    background-color: #009dd6;
+    border-radius: 10px;
+    position: relative;
+}
+
+.button {
+    background-color: #2b2b2b;
+    color: white;
+    padding: 1.5vw;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+.picture {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+}
+
+.right-side {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding: 2vw;
+}
+
+h2 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.descriptionAndGenres {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.8rem;
+}
+
+/*footer*/
+footer {
+    margin-top: auto;
+    background-color: #0d0d0d;
+    padding: 3vw 20vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+

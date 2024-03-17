@@ -8,52 +8,62 @@ function getMovies()
         [
             "id" => 1,
             "name" => "Deadpool & Wolverine",
-            "release date" => "26/Jul/2024",
+            "date" => "26-July-2024",
+            "image" => "http://localhost/PRG03-eindopdracht/images/deadpool.jpg"
         ],
         [
             "id" => 2,
             "name" => "Dune: Part Two",
-            "release date" => "29/Feb/2024",
+            "date" => "29-February-2024",
+            "image" => "http://localhost/PRG03-eindopdracht/images/dune.jpg"
         ],
         [
             "id" => 3,
             "name" => "Kung Fu Panda 4",
-            "release date" => "20/Maa/2024",
+            "date" => "20-March-2024",
+            "image" => "http://localhost/PRG03-eindopdracht/images/kungFu.jpg"
         ],
         [
             "id" => 4,
             "name" => "Kingdom of the Planet of the Apes",
-            "release date" => "8/Maa/2024",
+            "date" => "8-March-2024",
+            "image" => "http://localhost/PRG03-eindopdracht/images/apes.jpg"
         ],
         [
             "id" => 5,
             "name" => "A Quiet Place: Day One",
-            "release date" => "27/Jun/2024",
+            "date" => "27-June-2024",
+            "image" => "http://localhost/PRG03-eindopdracht/images/dayOne.jpg"
         ],
         [
             "id" => 6,
             "name" => "Gladiator 2",
-            "release date" => "22/Nov/2024",
+            "date" => "22-November-2024",
+            "image" => "http://localhost/PRG03-eindopdracht/images/gladiator.jpg"
         ],
         [
             "id" => 7,
             "name" => "The Marsh King's Daughter",
-            "release date" => "25/Apr/2024",
+            "date" => "25-April-2024",
+            "image" => "http://localhost/PRG03-eindopdracht/images/marsh.jpg"
         ],
         [
             "id" => 8,
             "name" => "Inside Out 2",
-            "release date" => "12/Jun/2024",
+            "date" => "12-June-2024",
+            "image" => "http://localhost/PRG03-eindopdracht/images/inside.jpg"
         ],
         [
             "id" => 9,
             "name" => "Kraven the Hunter",
-            "release date" => "29/Aug/2024",
+            "date" => "29-August-2024",
+            "image" => "http://localhost/PRG03-eindopdracht/images/kraven.jpg"
         ],
         [
             "id" => 10,
             "name" => "Godzilla x Kong: The New Empire",
-            "release date" => "11/Apr/2024",
+            "date" => "11-April-2024",
+            "image" => "http://localhost/PRG03-eindopdracht/images/godzilla.jpg"
         ]
 
 
@@ -64,8 +74,7 @@ function getMovies()
  * @param $id
  * @return mixed
  */
-function getMovieDetails($id)
-{
+function getMovieDetails($id) {
     $tags = [
         1 => [
             "description" => "The irresponsible hero Deadpool will change the history of the MCU with Wolverine!?",
